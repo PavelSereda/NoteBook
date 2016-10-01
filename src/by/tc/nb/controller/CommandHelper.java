@@ -12,9 +12,10 @@ public class CommandHelper {
 
     public CommandHelper() {
         commands.put("ADD_NEW_NOTE", new AddNewNote());
-        commands.put("FIND_NOTES", new FindNotes());
-        commands.put("LOAD_NOTEBOOK_FROM_FILE", new LoadNoteBookFromFile());
+        commands.put("FIND_NOTES_BY_CONTENT", new FindNotes());
+        commands.put("FIND_NOTES_BY_DATE", new FindNotes());
         commands.put("SHOW_NOTES", new ShowNotes());
+        commands.put("LOAD_NOTEBOOK_FROM_FILE", new LoadNoteBookFromFile());
         commands.put("WRITE_NOTEBOOK_IN_FILE", new WriteNoteBookInFile());
     }
 

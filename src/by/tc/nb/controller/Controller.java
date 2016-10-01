@@ -5,13 +5,17 @@ import by.tc.nb.bean.Response;
 import by.tc.nb.command.Command;
 import by.tc.nb.command.exception.CommandException;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
+
 public class Controller {
 	private CommandHelper helper = new CommandHelper();
 	
 	
 	public Controller(){}
 	
-	public Response doRequest(Request request){
+	public Response doRequest(Request request) throws IOException, ParseException {
 		String commandName = request.getCommandName();
 		
 		Command command = helper.getCommand(commandName);
@@ -25,7 +29,7 @@ public class Controller {
 			response.setErrorStatus(true);
 			response.setErrorMessage("ERROR!");
 		}
-		
+
 		return response;
 		
 	}

@@ -10,13 +10,11 @@ public class NoteBookProvider {
 	private NoteBookProvider(){
 		noteBook = new NoteBook();
 	}
-	
-	
+
 	public static NoteBookProvider getInstance(){
 		return instance;
 	}
-	
-	
+
 	public NoteBook getNoteBook(){
 		return noteBook;
 	}
