@@ -18,7 +18,6 @@ public class AddNewNote implements Command {
     private String dateStr = dateFormat.format(date);
     // SimpleDateFormat dateFormat1 = new SimpleDateFormat("hh:mm:ss");
 
-
     @Override
     public Response execute(Request request) throws CommandException {
         AddNoteRequest req = null;

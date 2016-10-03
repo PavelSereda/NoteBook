@@ -15,14 +15,11 @@ public class ShowNotes implements Command {
     @Override
     public Response execute(Request request) throws CommandException {
         Request req = null;
-
-        if(request instanceof Request) {
+        if (request instanceof Request) {
             req = request;
-        }
-        else{
+        } else {
             throw new CommandException("Wrong request");
         }
-
         NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
         noteBook.getNotes();
 
@@ -30,7 +27,6 @@ public class ShowNotes implements Command {
         response.setErrorStatus(false);
         response.setNotes(noteBook.getNotes());
         response.setResultMessage("All OK!");
-
 
         return response;
     }

@@ -18,12 +18,12 @@ public class NoteBook {
         System.out.println("Note was added");
     }
 
-    public List<Note> findNotesByContent(Note searchingNote) {
+    public List<Note> findNotesByContent(String note) {
         if (detectednotes.size() != 0) {
             detectednotes.clear();
         }
         for (Note n : notes) {
-            if (n.getNote().toUpperCase().contains(searchingNote.getNote().toUpperCase())) {
+            if (n.getNote().toUpperCase().contains(note.toUpperCase())) {
                 detectednotes.add(n);
             }
         }
@@ -31,12 +31,12 @@ public class NoteBook {
     }
 
 
-    public List<Note> findNotesByDate(Note searchingNote) {
+    public List<Note> findNotesByDate(String date) {
         if (detectednotes.size() != 0) {
             detectednotes.clear();
         }
         for (Note n : notes) {
-            if (n.getDateStr().equals(searchingNote.getDateStr())) {
+            if (n.getDateStr().equals(date)) {
                 detectednotes.add(n);
             }
         }
@@ -55,7 +55,6 @@ public class NoteBook {
             System.out.println("Incorrect path");
             return "Incorrect path";
         }
-
         System.out.println("Completed");
         return "Completed";
     }

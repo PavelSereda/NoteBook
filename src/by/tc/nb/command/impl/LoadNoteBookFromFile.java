@@ -23,7 +23,6 @@ public class LoadNoteBookFromFile implements Command {
             throw new CommandException("Wrong request");
         }
 
-
         NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
         noteBook.loadNoteBookFromFile(req.getPath());
         Response response = new Response();

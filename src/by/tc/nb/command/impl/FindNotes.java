@@ -20,35 +20,21 @@ public class FindNotes implements Command {
             throw new CommandException("Wrong request");
         }
 
-
         String command = req.getCommandName();
+        NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
+
+        FindNotesResponse response = new FindNotesResponse();
+        response.setErrorStatus(false);
+        response.setResultMessage("All OK!");
+
         if (command.equals("FIND_NOTES_BY_CONTENT")) {
             String note = req.getSearchingContent();
-
-            Note searchingNote = new Note(note);
-
-            NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
-
-            FindNotesResponse response = new FindNotesResponse();
-            response.setErrorStatus(false);
-            response.setResultMessage("All OK!");
-            response.setDetectednotes(noteBook.findNotesByContent(searchingNote));
-
+            response.setDetectednotes(noteBook.findNotesByContent(note));
             return response;
         } else {
             String date = req.getSearchingDate();
-
-            Note searchingNote = new Note(null, date);
-
-            NoteBook noteBook = NoteBookProvider.getInstance().getNoteBook();
-
-            FindNotesResponse response = new FindNotesResponse();
-            response.setErrorStatus(false);
-            response.setResultMessage("All OK!");
-            response.setDetectednotes(noteBook.findNotesByDate(searchingNote));
-
+            response.setDetectednotes(noteBook.findNotesByDate(date));
             return response;
-
         }
     }
 

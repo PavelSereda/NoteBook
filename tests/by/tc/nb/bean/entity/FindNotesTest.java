@@ -30,7 +30,7 @@ public class FindNotesTest {
     public void testFindNotesByContent(List<Note> list) throws Exception {
         n.setNotes(list);
         Note nn = new Note("aaaaa","aaaaa");
-        n.findNotesByContent(nn);
+        n.findNotesByContent(nn.getNote());
         Assert.assertEquals(n.getDetectednotes().size(), 2);
     }
 
@@ -39,7 +39,7 @@ public class FindNotesTest {
     public void testFindNotesByDate(List<Note> list) throws Exception {
         n.setNotes(list);
         Note nn = new Note(null,"26.09.2011");
-        n.findNotesByDate(nn);
+        n.findNotesByDate(nn.getDateStr());
         Assert.assertEquals(n.getDetectednotes().size(), 1);
     }
 
